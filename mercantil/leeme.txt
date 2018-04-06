@@ -1,0 +1,75 @@
+
+Scraper para Mercantil.com
+**************************
+
+1. Instalación.
+
+Primero que nada, se necesita ejecutar el programa desde una instalación Linux compatible, como Ubuntu 16.04 o superior (se recomienda porque ya viene con
+Python 3 instalado).
+
+Después se debe instalar pip, el cual es un gestor de paquetes para Python. Para instalar se debe ejecutar el siguiente comando en un Terminal
+
+sudo apt-get install -y python3-pip
+
+Posteriormente, ejecutar:
+
+sudo -H pip3 install scrapy
+sudo -H pip3 install scrapy-fake-useragent
+
+-> Instalar Tor
+Ejecutar en un terminal:
+
+sudo apt install tor
+echo "ControlPort 9051" >> /etc/tor/torrc
+
+Luego, ejecutar:
+
+echo HashedControlPassword $(tor --hash-password "my password" | tail -n 1) >> /etc/tor/torrc
+
+Instalar netcat:
+
+sudo apt install nc
+
+Iniciar tor:
+
+sudo service tor start 
+
+Testear cambio de ip:
+
+echo -e 'AUTHENTICATE "my password"\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051
+
+El output del comando debería ser:
+
+root@75f6721089f2:/# echo -e 'AUTHENTICATE "my password"\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051
+250 OK
+250 OK
+250 closing connection
+
+Instalar Stem (controlador de Tor para python):
+
+sudo pip3 install stem
+
+Instalar Privoxy (conector proxy Tor a http(s) proxy), ejecutar:
+
+sudo apt install privoxy
+echo "forward-socks5t / 127.0.0.1:9050 ." >> /etc/privoxy/config
+
+Iniciar privoxy:
+
+sudo service privoxy start
+
+2. Uso:
+********
+
+Para iniciar el scraper, cambiar al directorio mercantil y ejecutar
+
+chmod +x ./tot.sh
+./tot.sh
+
+El script cada aproximadamente 10 items cambiará la ip para evitar baneos.
+
+El archivo .csv generado es formato UTF-8.
+
+
+
+
