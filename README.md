@@ -18,7 +18,7 @@ Esto generará la imágen de Docker con las dependencias necesarias para ejecuta
 
 4. Una vez terminado el armado de la imagen, ejecuta `docker run -i -t mercantil_scrapy bash` en la Terminal. Esto lanzará una consola en el sistema virtual. Luego ejecuta `cd /home/mercantil && ./start.sh` para iniciar el proceso de webscraping.
 
-El proceso demorará aproximadamente 1 semana ya que scrapy limitará las conexiones simultáneas para evitar posibles baneos de IP, y también cambiará la ip cada 10 items recolectados.
+El proceso demorará aproximadamente 1 semana ya que scrapy limitará las conexiones simultáneas para evitar posibles baneos de IP, y también cambiará la IP del servidor proxy cada 10 registros recolectados.
 
 
 
