@@ -32,7 +32,7 @@ COPY parches/redirect.py /usr/local/lib/python3.5/dist-packages/scrapy/downloade
 
 # creando archivos ejecutables
 
-RUN chmod +x /home/mercantil/tot.sh
+RUN chmod +x /home/mercantil/start.sh
 
 # el archivo code representa la categoría del sitio (se encuentran aprox 15000 en el sitio), y lastmsg representa la página actual de la categoría
 
