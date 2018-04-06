@@ -42,6 +42,5 @@ RUN echo 0 > /home/mercantil/lastmsg
 # Registrando proxy TOR como proxy de sistema
 
 ENV HTTPS_PROXY https://127.0.0.1:8118
-ENV HTTP_PROXY http://127.0.0.1:8118 
-
+ENV HTTP_PROXY http://127.0.0.1:8118
 
